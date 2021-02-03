@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% static 'img' as base_url %}
+
+{% block content %}
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <hr>
+
+    {% if score == 1 %}
+    <div>
+        <img src="{% static 'img/happy.svg' %}" alt="">
+    </div>
+    {% elif score == 0.5 %}
+    <div>
+        <img src="{% static 'img/neutral.svg' %}" alt="">
+    </div>
+    {% elif score == 0 %}
+    <div>
+        <img src="{% static 'img/sad.svg' %}" alt="">
+    </div>
+    {%endif%}
+
+</div>
+    <p>The score is {{ score }}</p>
+
+<br>
+{% endblock content %}
