@@ -14,28 +14,51 @@
     <br>
     <hr>
     <div class="row">
-        {% if score == 1 %}
-            <div class="col-1">
+        <div class="col-4 results">
+            <p>{{ text }}</p>
+        </div>
+        {% if score >= 0.6 and magnitude >= 0.8 %}
+            <div class="col-1 results">
                 <img src="{% static 'img/happy.svg' %}" alt="">
             </div>
-        {% elif score == 0.5 %}
-            <div class="col-1">
-                <img src="{% static 'img/neutral.svg' %}" alt="">
+            <div class="col results">
+                <p>Sentiment: Positive</p>
+                <p>Sentiment Score: {{ score  }}</p>
+                <p>Sentiment Magnitude: {{ magnitude  }}</p>
             </div>
-        {% elif score == 0 %}
-            <div class="col-1">
+        {% elif score <= -0.6 and magnitude >= 0.8 %}
+            <div class="col-1 results">
                 <img src="{% static 'img/sad.svg' %}" alt="">
             </div>
+            <div class="col results">
+                <p>Sentiment: Negative</p>
+                <p>Sentiment Score: {{ score  }}</p>
+                <p>Sentiment Magnitude: {{ magnitude  }}</p>
+            </div>
+        {% elif magnitude < 0.8 %}
+            <div class="col-1 results">
+                <img src="{% static 'img/neutral.svg' %}" alt="">
+            </div>
+            <div class="col results">
+                <p>Sentiment: Neutral</p>
+                <p>Sentiment Score: {{ score  }}</p>
+                <p>Sentiment Magnitude: {{ magnitude  }}</p>
+            </div>
+            {% elif magnitude >= 0.8 %}
+            <div class="col-1 results">
+                <img src="{% static 'img/happy.svg' %}" alt="">
+            </div>
+            <div class="col-1 results">
+                <img src="{% static 'img/sad.svg' %}" alt="">
+            </div>
+            <div class="col results">
+                <p>Sentiment: Mixed</p>
+                <p>Sentiment Score: {{ score  }}</p>
+                <p>Sentiment Magnitude: {{ magnitude  }}</p>
+            </div>
         {%endif%}
-        <div class"col">
-            <p>Sentiment Score: {{ score  }}</p>
-            <p>Sentiment Magnitude: {{ magnitude  }}</p>
-        </div>
     </div>
-    
-
 </div>
-    <p>The score is {{ score }}</p>
 
 <br>
 {% endblock content %}
