@@ -13,20 +13,26 @@
     </form>
     <br>
     <hr>
-
-    {% if score == 1 %}
-    <div>
-        <img src="{% static 'img/happy.svg' %}" alt="">
+    <div class="row">
+        {% if score == 1 %}
+            <div class="col-1">
+                <img src="{% static 'img/happy.svg' %}" alt="">
+            </div>
+        {% elif score == 0.5 %}
+            <div class="col-1">
+                <img src="{% static 'img/neutral.svg' %}" alt="">
+            </div>
+        {% elif score == 0 %}
+            <div class="col-1">
+                <img src="{% static 'img/sad.svg' %}" alt="">
+            </div>
+        {%endif%}
+        <div class"col">
+            <p>Sentiment Score: {{ score  }}</p>
+            <p>Sentiment Magnitude: {{ magnitude  }}</p>
+        </div>
     </div>
-    {% elif score == 0.5 %}
-    <div>
-        <img src="{% static 'img/neutral.svg' %}" alt="">
-    </div>
-    {% elif score == 0 %}
-    <div>
-        <img src="{% static 'img/sad.svg' %}" alt="">
-    </div>
-    {%endif%}
+    
 
 </div>
     <p>The score is {{ score }}</p>

@@ -16,7 +16,7 @@ class IndexPageView(TemplateView):
         form = Content(request.POST)
         if form.is_valid():
             text = request.POST['text']
-            score = analyze_text(text)
-            context = {'score': score, 'form': Content()}
+            score, magnitude = analyze_text(text)
+            context = {'score': score, 'magnitude': magnitude, 'form': Content()}
             return render(request, self.template_name, context)
         return render(request, self.template_name, {'form': form})
