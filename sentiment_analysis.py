@@ -4,7 +4,7 @@ import os
 
 def analyze_text (text):
 
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= 'sentiment_analysis.json'
+    # os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= 'sentiment_analysis.json'
     # Instantiates a client
     client = language_v1.LanguageServiceClient()
 
