@@ -13,8 +13,8 @@ def analyze_text (text):
     # Detects the sentiment of the text
     sentiment = client.analyze_sentiment(request={'document': document}).document_sentiment
 
-    score = round(sentiment.score, 2)
-    magnitude = round(sentiment.magnitude)
+    score = round(sentiment.score, 4)
+    magnitude = round(sentiment.magnitude, 4)
     if score >= 0.6 and magnitude >= 0.8:
         label = 'Positive'
     elif score <= -0.6 and magnitude >= 0.8:

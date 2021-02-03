@@ -16,32 +16,32 @@
     <div class="row">
         
         {% if label %}
-            {% if label == 'Happy' %}
-                <div class="col-1 results">
-                    <img src="{% static 'img/positive.svg' %}" alt="">
+            {% if label == 'Positive' %}
+                <div class="col-3 col-md-2 col-xl-1">
+                    <img class="sentiment-img" src="{% static 'img/positive.png' %}" alt="">
                 </div>
             {% elif label == 'Negative' %}
-                <div class="col-1 results">
-                    <img src="{% static 'img/negative.svg' %}" alt="">
+                <div class="col-3 col-md-2 col-xl-1">
+                    <img class="sentiment-img" src="{% static 'img/negative.png' %}" alt="">
                 </div>
             {% elif label == 'Neutral' %}
-                <div class="col-1 results">
-                    <img src="{% static 'img/neutral.svg' %}" alt="">
+                <div class="col-3 col-md-2 col-xl-1">
+                        <img class="sentiment-img" src="{% static 'img/neutral.png' %}" alt="">
                 </div>
             {% elif label == 'Mixed' %}
-                <div class="col-1 results">
-                    <img src="{% static 'img/positive.svg' %}" alt="">
+                <div class="col-3 col-md-2 col-xl-1">
+                    <img class="sentiment-img" src="{% static 'img/positive.png' %}" alt="">
                 </div>
-                <div class="col-1 results">
-                    <img src="{% static 'img/negative.svg' %}" alt="">
+                <div class="col-3 col-md-2 col-xl-1">
+                    <img class="sentiment-img" src="{% static 'img/negative.png' %}" alt="">
                 </div>
             {% endif %}
-            <div class="col-3 results">
-                <p>Sentiment: {{ label}}</p>
-                <p>Sentiment Score: {{ score  }}</p>
-                <p>Sentiment Magnitude: {{ magnitude  }}</p>
+            <div class="col-sm-6 col-md-5">
+                <p><strong>Sentiment:</strong>  {{ label }}</p>
+                <p><strong>Sentiment Score:</strong>  {{ score  }}</p>
+                <p><strong>Sentiment Magnitude:</strong>  {{ magnitude  }}</p>
             </div>
-            <div class="col results">
+            <div class="col-md-5 col-lg">
                 <p><strong>Text Entered:</strong>  {{ short_text }}</p>
             </div>
         {% endif %}
