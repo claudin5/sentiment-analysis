@@ -1,5 +1,6 @@
 sentiment_analysis.json
 .env
+.venv
 *.log
 *.pot
 *.pyc
